@@ -7,9 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="container">
-
-<%= link_to "login", new_session_path, :class => "right" %>
-
+<% if current_user %>
+  Logged in as: <%= User.find(current_user.id).name %>
+  <%= link_to "logout", logout_path, :class => "right" %>
+<% else %>
+  <%= link_to "login", login_path, :class => "right" %>
+<% end %>
+<p><%= flash[:alert] %></p>
 <p><%= flash[:notice] %></p>
 
 <%= yield %>
