@@ -1,0 +1,9 @@
+<h1>Add a question</h1>
+
+<%= form_for @question do |f|%>
+  <div class="form-group">
+    <%= f.label :text %>
+    <%= f.text_area(:text, size: '50x10') %>
+    <%= f.submit "submit", :class => "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,6 @@
+<h1>Questions Page</h1>
+
+
+<% Question.all.each do |question| %>
+  <%= link_to "#{question.text} - #{User.find(question.user_id).name}", question_path(question) %>
+<% end %>
