@@ -13,9 +13,12 @@
 <% else %>
   <%= link_to "login", login_path, :class => "right" %>
 <% end %>
-<p><%= flash[:alert] %></p>
-<p><%= flash[:notice] %></p>
-
+<% if flash[:alert] %>
+  <p><%= flash[:alert].html_safe %></p>
+<% end %>
+<% if flash[:notice] %>
+  <p><%= flash[:notice].html_safe %></p>
+<% end %>
 <%= yield %>
 
 </body>

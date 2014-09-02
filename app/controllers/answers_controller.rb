@@ -6,11 +6,15 @@ class AnswersController < ApplicationController
   end
 
   def create
+    @user = current_user
     @question = Question.find(params[:question_id])
     @answer = @question.answers.new(answer_params)
     if @answer.save
       flash.now.notice = "Successfully saved answer"
-      redirect_to question_path(@question)
+      respond_to do |format|
+        format.html { redirect_to new_question_answer_path(@question) }
+        format.js
+      end
     else
       flash.now.alert = "Incomplete!!!!!!!!!!"
       render 'new'
