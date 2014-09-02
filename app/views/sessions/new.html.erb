@@ -1,0 +1,11 @@
+<h1>Sign in</h1>
+
+<%= form_tag sessions_path do %>
+  <div class="form-group">
+    <%= label_tag "Name" %>
+    <%= text_field_tag :name, "", :class => 'form-control'%>
+    <%= label_tag "Password" %>
+    <%= password_field_tag :password, "", :class => 'form-control'%>
+  </div>
+  <%= submit_tag "Submit", :class => "btn btn-primary" %>
+<% end %>
