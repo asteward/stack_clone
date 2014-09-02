@@ -8,6 +8,8 @@
 </head>
 <body class="container">
 
+<%= link_to "login", new_session_path, :class => "right" %>
+
 <p><%= flash[:notice] %></p>
 
 <%= yield %>
