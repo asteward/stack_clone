@@ -20,5 +20,11 @@ describe 'Adding a question' do
     click_button "submit"
     expect(page).to have_content 'Blah Blah'
   end
+
+  it 'displays an error if text box is blank on submission' do
+    click_link "q?      (҂⌣̀_⌣́)ᕤ"
+    click_button "submit"
+    expect(page).to have_content "Please fill in the text box"
+  end
 end
 

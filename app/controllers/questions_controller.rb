@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
       flash[:notice] = "<strong>Hey!</strong> Your question has been added!"
       redirect_to questions_path
     else
+      flash[:alert] = "Please fill in the text box"
       redirect_to new_question_path
     end
   end
