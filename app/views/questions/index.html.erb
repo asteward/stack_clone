@@ -2,5 +2,5 @@
 
 <div class="jumbotron"><h1><%= link_to "q?      (҂⌣̀_⌣́)ᕤ", new_question_path, :id => 'q?      (҂⌣̀_⌣́)ᕤ' %></h1></div>
 <% Question.all.each do |question| %>
-  <p>Q:<%= link_to "#{question.text} - #{User.find(question.user_id).name}", question_path(question) %></p>
+  <p>Q:<%= link_to "#{question.text} - #{User.find(question.user_id).name}", question_path(question), :id => question.id %></p>
 <% end %>

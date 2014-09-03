@@ -35,3 +35,23 @@ describe 'Adding a question' do
   end
 end
 
+describe 'Answering a question' do
+  let(:user) { FactoryGirl.create(:user)}
+  before(:each) do
+    user_login
+  end
+
+  it 'visits a question page' do
+    test_question = Question.create({:user_id => user.id, :text => "test text" })
+    visit '/'
+    click_link "#{test_question.id}"
+    expect(page).to have_content "Answer"
+
+  end
+
+  # it 'displays a text field when the answer button is clicked' do
+  #   test_question = Question.create({:user_id => user.id, :text => "test text" })
+  #   visit '/questions/#{test_question.id}'
+
+end
+
