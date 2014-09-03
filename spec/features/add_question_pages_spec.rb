@@ -26,5 +26,12 @@ describe 'Adding a question' do
     click_button "submit"
     expect(page).to have_content "Please fill in the text box"
   end
+
+  it 'takes a user to the sign in page if they try to create a question and are not logged in' do
+    click_link "logout"
+    visit ('/')
+    click_link "q?      (҂⌣̀_⌣́)ᕤ"
+    expect(page).to have_content "Not authorized"
+  end
 end
 
