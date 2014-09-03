@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
   def show
     @user = current_user
     @question = Question.find(params[:id])
-
+    @answers = @question.answers.sort {|a,b| b.votes.length <=> a.votes.length }
   end
 
 private

@@ -1,3 +1,4 @@
 $('form').hide()
 $('#new_answer').show();
 $('#all_answers').append('<li><%= j @user.name %>: <%= j @question.answers.last.text %></li>')
+

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :votes
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers
   end
+
   resources :answers do
     resources :votes, :only => [:new, :create]
   end

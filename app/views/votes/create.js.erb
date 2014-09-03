@@ -1,0 +1,10 @@
+  var $answers = $('#all_answers').children('li');
+  $answers = $answers.toArray();
+  $answers.sort(function(a,b){
+    console.log(a.id);
+    var aVoteCount = a.id;
+    var bVoteCount = b.id;
+    return bVoteCount - aVoteCount;
+    });
+  $('ul#all_answers').detach();
+  $('#sorted-answers').append($answers);
