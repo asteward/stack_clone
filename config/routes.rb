@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :votes
+
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
@@ -8,6 +10,9 @@ Rails.application.routes.draw do
   resources :users
   resources :questions do
     resources :answers
+  end
+  resources :answers do
+    resources :votes, :only => [:new, :create]
   end
 
   resources :sessions, :only => [:new, :create, :destroy]

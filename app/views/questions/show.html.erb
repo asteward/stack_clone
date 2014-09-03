@@ -9,6 +9,6 @@
 </div>
 <% if @user %>
   <div id="new_answer">
-  <%= link_to "Answer", new_question_answer_path(@question), class: "btn btn-success", remote: true %>
+  <%= link_to "Answer", new_question_answer_path(@question), class: "btn btn-success", id: "Answer", remote: true %>
   </div>
 <% end %>

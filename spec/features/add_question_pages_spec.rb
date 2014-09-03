@@ -49,9 +49,12 @@ describe 'Answering a question' do
 
   end
 
-  # it 'displays a text field when the answer button is clicked' do
-  #   test_question = Question.create({:user_id => user.id, :text => "test text" })
-  #   visit '/questions/#{test_question.id}'
-
+  it 'displays a text field when the answer button is clicked', js: true do
+    test_question = Question.create({:user_id => user.id, :text => "test text" })
+    visit '/'
+    click_link "#{test_question.id}"
+    click_link "Answer"
+    expect(page).to have_css('#reply')
+  end
 end
 
