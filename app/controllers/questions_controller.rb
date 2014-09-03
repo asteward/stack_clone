@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+
+  before_filter :authorize, only: [:new, :create]
+
   def index
   end
 
