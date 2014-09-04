@@ -1,10 +1,2 @@
-  var $answers = $('#all_answers').children('li');
-  $answers = $answers.toArray();
-  $answers.sort(function(a,b){
-    console.log(a.id);
-    var aVoteCount = a.id;
-    var bVoteCount = b.id;
-    return bVoteCount - aVoteCount;
-    });
-  $('ul#all_answers').detach();
-  $('#sorted-answers').append($answers);
+$('#all_answers').empty();
+$('#all_answers').append('<%= j render partial: "answers/answer_list_item", collection: @question.rank_answers, as: :answer %>');

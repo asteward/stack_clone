@@ -3,7 +3,7 @@
 <div id="sorted-answers">
   <ul id="all_answers">
     <% @answers.each do |answer| %>
-      <li id="<%= answer.votes.length %>", data-remote="true"><%= link_to "Vote | #{answer.votes.length}", answer_votes_path(answer), class: "btn btn-sm btn-danger", method: "post", rel: "nofollow"%> <%= User.find(answer.user_id).name %>: <%= answer.text %> </li>
+      <%= render 'answers/answer_list_item', answer: answer %>
     <% end %>
   <ul>
 </div>

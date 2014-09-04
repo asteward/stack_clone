@@ -9,6 +9,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bcrypt-ruby', '3.1.2'
+gem 'js-routes'
 
 group :test do
   gem 'shoulda-matchers'

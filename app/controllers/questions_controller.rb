@@ -3,6 +3,10 @@ class QuestionsController < ApplicationController
   before_filter :authorize, only: [:new, :create]
 
   def index
+    # respond_to do |format|
+    #   # format.html { redirect_to :back }
+    #   format.json { render("hey") }
+    # end
   end
 
   def new
@@ -24,7 +28,8 @@ class QuestionsController < ApplicationController
   def show
     @user = current_user
     @question = Question.find(params[:id])
-    @answers = @question.answers.sort {|a,b| b.votes.length <=> a.votes.length }
+    @answers = @question.rank_answers
+    # @answers = @question.answers.sort {|a,b| b.votes.length <=> a.votes.length }
   end
 
 private

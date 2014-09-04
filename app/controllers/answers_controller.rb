@@ -1,6 +1,17 @@
 class AnswersController < ApplicationController
-
   before_filter :authorize
+  respond_to :html, :json
+
+  def index
+    # @question = Question.find(params[:question_id])
+    # @answers = @question.answers
+    @answers = Answer.all
+    respond_with @answers
+  end
+
+  def show
+    redirect_to :back
+  end
 
   def new
     @user = current_user

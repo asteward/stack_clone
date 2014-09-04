@@ -11,8 +11,9 @@ Rails.application.routes.draw do
     resources :answers
   end
 
+
   resources :answers do
-    resources :votes, :only => [:new, :create]
+    resources :votes
   end
 
   resources :sessions, :only => [:new, :create, :destroy]

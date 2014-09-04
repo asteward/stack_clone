@@ -1,17 +1,31 @@
 class VotesController < ApplicationController
+   respond_to :html, :json
+
+  def index
+    @answer = Answer.find(params[:answer_id])
+    @question = Question.find(@answer.question.id)
+    @answers = @question.answers
+    respond_with @answers
+  end
+
   def new
     @vote = current_user.votes.new
   end
 
   def create
     @answer = Answer.find(params[:answer_id])
+    @question = Question.find(@answer.question_id)
     @vote = @answer.votes.new(user_id: current_user.id)
-    if !@vote.save
-      flash[:alert] = "Hey, You! You can only upvote an answer once!"
-    end
+    flash[:alert] = "Hey, You! You can only upvote an answer once!" if !@vote.save
+    # @answers = @question.answers
+    # respond_with @answer
     respond_to do |format|
-      format.html { redirect_to :back }
       format.js
     end
+  end
+
+  def show
+
+    redirect_to :back
   end
 end
