@@ -1,1 +1,1 @@
-<li id="<%= answer.votes.length %>", data-remote="true"><%= link_to "Vote | #{answer.votes.length}", answer_votes_path(answer), class: "btn btn-sm btn-danger", method: "post", rel: "nofollow", remote: true%> <%= User.find(answer.user_id).name %>: <%= answer.text %> </li>
+<li id="<%= answer.votes.length %>", data-remote="true"><%= link_to "Vote | #{answer.votes.length}", answer_votes_path(answer), class: "btn btn-sm btn-danger", id: answer.id, method: "post", rel: "nofollow", remote: true%> <%= User.find(answer.user_id).name %>: <%= answer.text %> </li>

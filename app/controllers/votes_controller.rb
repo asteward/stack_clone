@@ -1,5 +1,4 @@
 class VotesController < ApplicationController
-   respond_to :html, :json
 
   def index
     @answer = Answer.find(params[:answer_id])
@@ -20,6 +19,7 @@ class VotesController < ApplicationController
     # @answers = @question.answers
     # respond_with @answer
     respond_to do |format|
+      format.html(render '/questions/show')
       format.js
     end
   end
